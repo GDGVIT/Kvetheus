@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 flask = "*"
+dnslib = "*"
+dnspython = "*"
+requests = "*"
 
 [dev-packages]
 
