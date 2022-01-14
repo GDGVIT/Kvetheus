@@ -8,6 +8,9 @@ flask = "*"
 dnslib = "*"
 dnspython = "*"
 requests = "*"
+whois = "*"
+pywhois = "*"
+python-whois = "*"
 
 [dev-packages]
 
