@@ -1,6 +1,7 @@
 # import necessary libraries and functions
 from urllib import response
 from flask import Flask, jsonify, request
+from src.modules.macaddress import MacAddressLookup
 from src.modules.dnsenumeration import get_records
 from src.modules.domain_whois import get_whois
 from src.modules.subdomain import get_subdomains
@@ -16,7 +17,6 @@ def ping():
 
 @app.route("/v1/api/domain/records", methods=["POST"])
 def domainrecords():
-    domain = request.args.get("domain")
     return {"response": get_records(request.args.get("domain"))}
 
 
@@ -28,6 +28,11 @@ def whois():
 @app.route("/v1/api/domain/subdomains", methods=["POST"])
 def subdomains():
     return get_subdomains(request.args.get("q"))
+
+
+@app.route("/v1/api/mac", methods=["GET"])
+def mac():
+    return MacAddressLookup(request.args.get("q"))
 
 
 if __name__ == "__main__":
