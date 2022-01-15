@@ -3,6 +3,7 @@ from urllib import response
 from flask import Flask, jsonify, request
 from src.modules.dnsenumeration import get_records
 from src.modules.domain_whois import get_whois
+from src.modules.subdomain import get_subdomains
 
 # creating a Flask app
 app = Flask(__name__)
@@ -22,6 +23,11 @@ def domainrecords():
 @app.route("/v1/api/domain/whois", methods=["GET"])
 def whois():
     return get_whois(request.args.get("q"))
+
+
+@app.route("/v1/api/domain/subdomains", methods=["POST"])
+def subdomains():
+    return get_subdomains(request.args.get("q"))
 
 
 if __name__ == "__main__":
