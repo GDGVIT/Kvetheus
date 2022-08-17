@@ -1,4 +1,6 @@
-flask
+Flask
+Flask-Cors
+urllib3
 dnslib
 dnspython
 requests
