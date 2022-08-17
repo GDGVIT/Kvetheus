@@ -5,9 +5,9 @@ from src.modules.macaddress import MacAddressLookup
 from src.modules.dnsenumeration import get_records
 from src.modules.domain_whois import get_whois
 from src.modules.subdomain import get_subdomains
-
-# creating a Flask app
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/ping", methods=["GET", "POST"])
