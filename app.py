@@ -6,9 +6,11 @@ from src.modules.dnsenumeration import get_records
 from src.modules.domain_whois import get_whois
 from src.modules.subdomain import get_subdomains
 from flask_cors import CORS
+import os
 app = Flask(__name__)
 CORS(app)
 
+port = os.environ.get('PORT', 80)
 
 @app.route("/ping", methods=["GET", "POST"])
 def ping():
@@ -36,4 +38,4 @@ def mac():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=port)
